@@ -1,0 +1,21 @@
+themoviedb:
+   url: https://api.themoviedb.org/3
+   api.key: ${THEMOVIEDB_API_KEY}
+   
+logging: 
+   level.root: INFO
+   level.com: INFO
+   
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+   
+---
+spring:
+  profiles: heroku
+eureka:
+  instance:
+    hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
+  
